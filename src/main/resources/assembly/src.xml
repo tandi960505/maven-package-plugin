@@ -1,0 +1,37 @@
+<assembly xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.3"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.3 http://maven.apache.org/xsd/assembly-1.1.3.xsd">
+
+    <id>assembly-test</id>
+
+    <formats>
+        <!-- 打包成文件 -->
+        <format>dir</format>
+        <!--支持格式：https://maven.apache.org/plugins/maven-assembly-plugin/index.html#-->
+    </formats>
+
+    <dependencySets>
+        <!-- 将运行时需要的依赖打包到lib文件夹 -->
+        <dependencySet>
+            <outputDirectory>lib</outputDirectory>
+            <scope>runtime</scope>
+        </dependencySet>
+    </dependencySets>
+
+    <fileSets>
+        <!-- 将指定文件夹打包到指定文件夹 -->
+        <fileSet>
+            <directory>src/main/java</directory>
+            <outputDirectory>src</outputDirectory>
+        </fileSet>
+    </fileSets>
+
+    <files>
+        <!-- 将指定文件打包到指定文件夹 -->
+        <file>
+            <source>src/main/resources/logback.xml</source>
+            <outputDirectory>conf</outputDirectory>
+        </file>
+    </files>
+
+</assembly>
